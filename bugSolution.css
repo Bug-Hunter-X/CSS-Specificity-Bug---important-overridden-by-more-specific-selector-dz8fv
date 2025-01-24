@@ -1,0 +1,23 @@
+To solve the issue, we must understand that `!important` does not override specificity.  A more specific selector will always win.  To fix this, avoid relying on `!important` and restructure your CSS.  For instance, instead of relying on `!important`, increase the specificity of the desired style rule:
+
+```css
+.parent {
+  color: blue;
+}
+
+.child {
+  color: red;
+}
+
+.parent .child {
+  color: green !important; /*Now this is overriding other styles because it is the most specific*/
+}
+```
+
+Alternatively, adjust your CSS structure to avoid the conflict and make your selectors more specific by considering the parent element to avoid using !important.
+
+```css
+.parent .child {
+  color: green;
+}
+```
