@@ -1,0 +1,19 @@
+The following CSS code snippet demonstrates an uncommon bug related to specificity and inheritance:
+
+```css
+.parent {
+  color: blue;
+}
+
+.child {
+  color: red !important;
+}
+
+.parent .child {
+  color: green;
+}
+```
+
+In this case, the `!important` declaration on the `.child` selector is overridden by the more specific `.parent .child` selector which does not have `!important` flag.  This might be unexpected because the `!important` declaration typically overrides all other styles. However, specificity rules still apply.
+
+The order of appearance within the CSS file does not affect the outcome because specificity decides the precedence.
